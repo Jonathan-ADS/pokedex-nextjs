@@ -1,4 +1,5 @@
-import { Spacer, Text, useTheme, Image } from "@nextui-org/react";
+import { Spacer, Text, useTheme, Image, Link } from "@nextui-org/react";
+import NextLink from "next/link";
 
 export const Navbar = () => {
   const { theme } = useTheme();
@@ -16,28 +17,50 @@ export const Navbar = () => {
           backgroundColor: theme?.colors.gray50.value,
         }}
       >
-        <Image
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/19.svg"
-          alt="Incono de la App"
-          width={50}
-          height={50}
-          style={{
-            padding: "0 0 13px 0",
-          }}
-        />
+        {/* <NextLink href="/" passHref legacyBehavior>
+          <Link>
+            <Image
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/19.svg"
+              alt="Incono de la App"
+              width={50}
+              height={50}
+              style={{
+                padding: "0 0 13px 0",
+              }}
+            />
+            <Text color="white" h2>
+              P
+            </Text>
+            <Text color="white" h3>
+              okedex Jonathan
+            </Text>
+          </Link>
+        </NextLink> */}
 
-        <Text color="white" h2>
-          P
-        </Text>
-        <Text color="white" h3>
-          okedex Jonathan
-        </Text>
+        <Link href="/" as={NextLink}>
+          <Image
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/19.svg"
+            alt="Incono de la App"
+            width={50}
+            height={50}
+            style={{
+              padding: "0 0 13px 0",
+            }}
+          />
+          <Text color="white" h2>
+            P
+          </Text>
+          <Text color="white" h3>
+            okedex Jonathan
+          </Text>
+        </Link>
 
         <Spacer css={{ flex: 1 }} />
-
-        <Text color="white" h4>
-          Favoritos
-        </Text>
+        <Link href="/favorites" as={NextLink}>
+          <Text color="white" h4>
+            Favoritos
+          </Text>
+        </Link>
       </div>
     </>
   );
