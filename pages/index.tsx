@@ -4,6 +4,7 @@ import { NextPage, GetStaticProps } from "next";
 import pokemonApi from "../api/pokemonApi";
 import { PokemonListResponse, SmallPokemon } from "../interfaces/pokemon-list";
 import { PokemonCard } from "../components/pokemon";
+import { PokemonCards } from "../components/pokemon/PokemonCards";
 
 interface Props {
   pokemons: SmallPokemon[];
@@ -12,11 +13,7 @@ interface Props {
 const HomePage: NextPage<Props> = ({ pokemons }) => {
   return (
     <Layout title="Pokedex">
-      <Grid.Container gap={2} justify="flex-start">
-        {pokemons.map((poke) => (
-          <PokemonCard key={poke.id} pokemon={poke} />
-        ))}
-      </Grid.Container>
+      <PokemonCards pokemons={pokemons} />
     </Layout>
   );
 };
