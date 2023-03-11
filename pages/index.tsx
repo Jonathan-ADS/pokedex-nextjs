@@ -20,7 +20,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data } = await pokemonApi.get<PokemonListResponse>(
-    "/pokemon?limit=151"
+    "/pokemon?limit=649"
   );
 
   const pokemons: SmallPokemon[] = data.results.map((poke, i) => ({
